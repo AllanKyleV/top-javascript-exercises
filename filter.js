@@ -43,8 +43,8 @@ function separateAnimals(animals) {
     let separated = [];
 
     // animals.Object.keys.filter(animal => animal.Object.values('land'));
-    for (let key of animals.Object.keys) {
-        if (key.Object.values === 'land') {
+    for (let key of Object.keys(animals)) {
+        if (Object.values(key) === 'land') {
             separated.push(key);
         };
     }
@@ -53,9 +53,21 @@ function separateAnimals(animals) {
 };
 
 console.log(separateAnimals(animals));
-// Pseducode:
+// // Pseducode:
 // Goal: Separate land from sea animal.
 // An object that will hold the separated kinds, filter the land animal first, if the value of the animal is 'land', then add it to the created object under the collection land animals. Then 'sea', same idea.
 // Return the separated animals, refactor if possible, end.
 
 // I'll be back to it!
+
+// let names = {
+//     fisrt: 'john',
+//     last: 'doe'
+// }
+
+// function getFullname(names) {
+//     console.log(`${names.fisrt}`);
+//     console.log(Object.values(names));
+// }
+
+// console.log(getFullname(names));
