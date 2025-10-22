@@ -36,23 +36,33 @@ let animals = {
     dog : 'land',
     fish : 'sea',
     whale : 'sea',
-    cat : 'land'
+    cat : 'land',
+    bird: 'air'
 }
 
 function separateAnimals(animals) {
-    let separated = [];
+    let separated = {
+        land: [],
+        sea: []
+    };
 
-    // animals.Object.keys.filter(animal => animal.Object.values('land'));
-    for (let key of Object.keys(animals)) {
-        if (Object.values(key) === 'land') {
-            separated.push(key);
-        };
+    for (let key in animals) {
+        const habitat = animals[key];
+
+        if (!separated[habitat]) {
+            separated[habitat] = []
+            separated[habitat].push(key);
+        }
+
+        animals[key] === 'land' ? separated.land.push(key) : separated.sea.push(key);
     }
 
     return separated;
 };
 
 console.log(separateAnimals(animals));
+
+
 // // Pseducode:
 // Goal: Separate land from sea animal.
 // An object that will hold the separated kinds, filter the land animal first, if the value of the animal is 'land', then add it to the created object under the collection land animals. Then 'sea', same idea.
